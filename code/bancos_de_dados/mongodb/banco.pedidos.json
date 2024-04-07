@@ -1,0 +1,18 @@
+[{
+  "_id": {
+    "$oid": "6611f767d0a4107ef3a1bd36"
+  },
+  "id_cliente": "1",
+  "id_produto": "1",
+  "data_pedido": "2024-04-06",
+  "valor_pedido": 3500
+},
+{
+  "_id": {
+    "$oid": "6611f8fe0cb8a7df7f852871"
+  },
+  "id_cliente": "2",
+  "id_produto": "2",
+  "data_pedido": "2024-04-06",
+  "valor_pedido": 2500
+}]

@@ -1,0 +1,280 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API de pedidos, produtos e clientes",
+    "version": "1.0"
+  },
+  "paths": {
+    "/produtos": {
+      "get": {
+        "summary": "Retorna todos os produtos",
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria um novo produto",
+        "parameters": [
+          {
+            "name": "produto",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Produto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Produto criado com sucesso"
+          }
+        }
+      }
+    },
+    "/produtos/{id}": {
+      "put": {
+        "summary": "Atualiza um produto existente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "produto",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Produto"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Produto atualizado com sucesso"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um produto existente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Produto deletado com sucesso"
+          }
+        }
+      }
+    },
+    "/clientes": {
+      "get": {
+        "summary": "Retorna todos os clientes",
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      },
+      "post": {
+        "summary": "Cria um novo cliente",
+        "parameters": [
+          {
+            "name": "cliente",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Cliente"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cliente criado com sucesso"
+          }
+        }
+      }
+    },
+    "/clientes/{id}": {
+      "put": {
+        "summary": "Atualiza um cliente existente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          },
+          {
+            "name": "cliente",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Cliente"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Cliente atualizado com sucesso"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um cliente existente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "integer",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Cliente deletado com sucesso"
+          }
+        }
+      }
+    },
+    "/pedidos": {
+      "post": {
+        "summary": "Cria um novo pedido",
+        "parameters": [
+          {
+            "name": "pedido",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pedido"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Pedido criado com sucesso"
+          }
+        }
+      },
+      "get": {
+        "summary": "Retorna todos os pedidos",
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    },
+    "/pedidos/{id}": {
+      "put": {
+        "summary": "Atualiza um pedido existente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "pedido",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Pedido"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Pedido atualizado com sucesso"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deleta um pedido existente",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Pedido deletado com sucesso"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Produto": {
+      "type": "object",
+      "properties": {
+        "id_produtos": {
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "descricao": {
+          "type": "string"
+        },
+        "preco": {
+          "type": "number"
+        },
+        "categoria": {
+          "type": "string"
+        }
+      }
+    },
+    "Cliente": {
+      "type": "object",
+      "properties": {
+        "id_clientes": {
+          "type": "integer"
+        },
+        "nome": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "cpf": {
+          "type": "string"
+        },
+        "data_nascimento": {
+          "type": "string",
+          "format": "date"
+        }
+      }
+    },
+    "Pedido": {
+      "type": "object",
+      "properties": {
+        "id_cliente": {
+          "type": "integer"
+        },
+        "id_produto": {
+          "type": "integer"
+        },
+        "data_pedido": {
+          "type": "string",
+          "format": "date"
+        },
+        "valor_pedido": {
+          "type": "number"
+        }
+      }
+    }
+  }
+}
